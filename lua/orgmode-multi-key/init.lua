@@ -12,7 +12,7 @@ local is_link = function ()
     return true
 end
 
-
+-- Map org syntax to the function that better handles it
 local type_to_action = {
     [is_link] = "org_mappings.open_at_point",
     timestamp = "org_mappings.change_date",
@@ -62,7 +62,7 @@ local function toggle_org_item()
     end
 end
 
-
+-- Setup function
 M.setup = function (settings)
     if settings == nil then
         settings = {}
