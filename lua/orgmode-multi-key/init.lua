@@ -64,13 +64,18 @@ end
 
 
 M.setup = function (settings)
-    settings = settings or {}
-    local key = settings.key or "<cr>"
+    if settings == nil then
+        settings = {}
+    end
+
+    if settings.key == nil then
+        settings.key = "<cr>"
+    end
 
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "org",
         callback = function()
-            vim.api.nvim_buf_set_keymap( 0, 'n', key, "", {
+            vim.api.nvim_buf_set_keymap( 0, 'n', settings.key, "", {
                callback = function ()
                    toggle_org_item()
                end,
