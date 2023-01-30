@@ -64,6 +64,7 @@ end
 
 
 local function setup(settings)
+    settings = settings or {}
     local key = settings.key or "<cr>"
 
     vim.api.nvim_create_autocmd("FileType", {
