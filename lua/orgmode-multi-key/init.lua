@@ -63,7 +63,7 @@ local function toggle_org_item()
 end
 
 
-local function setup(settings)
+M.setup = function (settings)
     settings = settings or {}
     local key = settings.key or "<cr>"
 
