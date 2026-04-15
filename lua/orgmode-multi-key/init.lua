@@ -24,8 +24,12 @@ local type_to_action = {
 
 
 local function get_action_from_type()
-    local ts_utils = require('nvim-treesitter.ts_utils')
-    local cur_node = ts_utils.get_node_at_cursor()
+    local cur_node = vim.treesitter.get_node()
+
+    if cur_node == nil then
+        return nil
+    end
+
     local cur_row = cur_node:range()
 
     while cur_node ~= nil do
