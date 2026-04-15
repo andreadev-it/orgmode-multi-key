@@ -1,10 +1,10 @@
 local M = {}
 
-local org_mappings = require('orgmode.org.mappings')
+local org_hyperlinks = require('orgmode.org.hyperlinks')
 
 -- This function will be used instead of treesitter to find links
 local is_link = function ()
-    local is_link = org_mappings._get_link_under_cursor()
+    local is_link = org_hyperlinks.get_link_under_cursor()
     if is_link == nil then
        return nil
     end
